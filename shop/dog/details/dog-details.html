@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dog-details.css" />
+</head>
+<body>
+    <div class="dog-details-container">
+        <div class="dog-details">
+            <img src="images/dog1.jpg" alt="Dog 1" class="dog-image">
+            <h2>Max</h2>
+            <p><strong>Breed:</strong> Breed A</p>
+            <p><strong>Gender:</strong> Male</p>
+            <p><strong>Description:</strong> A playful and energetic puppy.</p>
+            <p><strong>Price:</strong> $500</p>
+            <div class="buttons">
+                <button class="add-to-cart" onclick="navigateTo('cart.html')">Add to Cart</button>
+                <button class="buy-now">Buy Now</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

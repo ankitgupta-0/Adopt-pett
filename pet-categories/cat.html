@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Category</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="category-page">
+        <h2>Cat Accessories</h2>
+        <div class="category-options">
+            <img src="images/cat_food.jpg" alt="Cat Food" class="clickable" onclick="navigateTo('cat_food.html')">
+            <img src="images/cat_toys.jpg" alt="Cat Toys" class="clickable" onclick="navigateTo('cat_toys.html')">
+            <img src="images/cat_accessories.jpg" alt="Cat Accessories" class="clickable" onclick="navigateTo('cat_accessories.html')">
+        </div>
+    </section>
+
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

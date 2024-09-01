@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adopt a Pet</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+        .category-card {
+            display: inline-block;
+            margin: 20px;
+        }
+        .category-card img {
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose a Category</h1>
+        <div class="category-card">
+            <img src="../images/8-0znV1kTxQM121Wl.png" alt="Dog" onclick="navigateTo('dog.html')">
+            <p>Dogs</p>
+        </div>
+        <div class="category-card">
+            <img src="../images/8-deKywmsNIXnh4t4.png" alt="Cat" onclick="navigateTo('cat.html')">
+            <p>Cats</p>
+        </div>
+        <div class="category-card">
+            <img src="../images/bird.jpg" alt="Bird" onclick="navigateTo('birds.html')">
+            <p>Birds</p>
+        </div>
+    </div>
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

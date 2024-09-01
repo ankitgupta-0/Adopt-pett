@@ -1,0 +1,93 @@
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.cart-items {
+    margin-top: 20px;
+}
+
+.no-items {
+    text-align: center;
+    font-size: 1.5em;
+    margin: 50px 0;
+}
+
+.cart-list {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.image-holder img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.cart-details h3, .cart-details h4 {
+    margin: 0;
+}
+
+.cart-details span {
+    display: block;
+    margin-top: 5px;
+    font-size: 1.2em;
+}
+
+.cart-total {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.d_flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    background-color: #28a745;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+button.delete {
+    background-color: #dc3545;
+    margin-left: 10px;
+}
+
+button.delete:hover {
+    background-color: #c82333;
+}
+
+.cartControl button {
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1em;
+    line-height: 1;
+}
+
+.cartControl button:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Your Order - Pawhelp</title>
+  <link rel="stylesheet" href="css/delivery.css">
+</head>
+<body>
+  <header>
+    <div id="navbar-container"></div>
+  </header>
+  <main>
+    <section class="track-order-section">
+      <form id="track-order-form">
+        <h2>Search By:</h2>
+        <div>
+          <input type="radio" id="order-id" name="searchBy" value="orderID" checked>
+          <label for="order-id">Order ID/No</label>
+          <input type="radio" id="tracking-id" name="searchBy" value="trackingID">
+          <label for="tracking-id">Tracking ID/AWB</label>
+        </div>
+        <input type="text" id="search-input" placeholder="Enter Your Order ID/No">
+        <button type="submit">Track Your Order</button>
+      </form>
+      <p id="order-status"></p>
+    </section>
+  </main>
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Order</title>
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Track Your Order</h1>
+        <p>Enter your order number to track the status of your order.</p>
+        <form action="track-order-handler.php" method="post">
+            <label for="order-number">Order Number:</label>
+            <input type="text" id="order-number" name="order-number" required>
+            <br>
+            <input type="submit" value="Track Order">
+        </form>
+    </div>
+</body>
+</html>

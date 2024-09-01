@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div class="login">
+        <div class="login-container">
+            <h1 id="form-state">Login</h1>
+            <div class="login-fields">
+                <input id="name-field" type="text" placeholder="Your Name" style="display: none;" />
+                <input id="email-field" type="email" placeholder="Email Address" />
+                <input id="password-field" type="password" placeholder="Password" />
+            </div>
+            <button id="continue-btn">Continue</button>
+
+            <p class="login-login">Create an account?<span id="toggle-form">Click here</span></p>
+
+            <div class="login-agree">
+                <input type="checkbox" />
+                <p>By continuing, I agree to the terms of use & privacy policy.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let state = "Login";
+
+            const formState = document.getElementById("form-state");
+            const nameField = document.getElementById("name-field");
+            const emailField = document.getElementById("email-field");
+            const passwordField = document.getElementById("password-field");
+            const continueBtn = document.getElementById("continue-btn");
+            const toggleForm = document.getElementById("toggle-form");
+
+            toggleForm.addEventListener("click", function() {
+                if (state === "Login") {
+                    state = "Sign Up";
+                    formState.textContent = "Sign Up";
+                    nameField.style.display = "block";
+                    toggleForm.textContent = "Login here";
+                } else {
+                    state = "Login";
+                    formState.textContent = "Login";
+                    nameField.style.display = "none";
+                    toggleForm.textContent = "Click here";
+                }
+            });
+
+            continueBtn.addEventListener("click", function() {
+                if (state === "Login") {
+                    login();
+                } else {
+                    signup();
+                }
+            });
+
+            function login() {
+                console.log("login");
+                const email = emailField.value;
+                const password = passwordField.value;
+
+                fetch("http://127.0.0.1:8080/login", {
+                    method: "POST",
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ email, password })
+                })
+                .then(res => res.json())
+                .then(responsedata => {
+                    if (responsedata.success) {
+                        localStorage.setItem('auth-token', responsedata.token);
+                        window.location.replace("/");
+                    } else {
+                        alert(responsedata.errors);
+                    }
+                });
+            }
+
+            function signup() {
+                console.log("signup");
+                const username = nameField.value;
+                const email = emailField.value;
+                const password = passwordField.value;
+            
+                fetch("http://127.0.0.1:8080/signup", {
+                    method: "POST",
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ username, email, password })
+                })
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return res.json();
+                })
+                .then(responsedata => {
+                    if (responsedata.success) {
+                        localStorage.setItem('auth-token', responsedata.token);
+                        window.location.replace("/");
+                    } else {
+                        alert(responsedata.errors || 'Sign up failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred during signup');
+                });
+            }
+            
+        });
+    </script>
+
+</body>
+</html>

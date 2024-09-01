@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.track-order-section {
+  text-align: center;
+  padding: 50px;
+}
+
+.track-order-section h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.track-order-section div {
+  margin-bottom: 20px;
+}
+
+.track-order-section input[type="text"] {
+  padding: 10px;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.track-order-section button {
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.track-order-section button:hover {
+  background-color: #333;
+}
+
+#order-status {
+  margin-top: 20px;
+  font-size: 18px;
+}

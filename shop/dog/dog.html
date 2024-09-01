@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Breeds</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+        .breed-card {
+            display: inline-block;
+            margin: 20px;
+        }
+        .breed-card img {
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose a Dog Breed</h1>
+        <div class="breed-card">
+            <img src="images/breed1.jpg" alt="Breed 1" onclick="navigateTo('./breed/breed1.html')">
+            <p>Breed A</p>
+        </div>
+        <div class="breed-card">
+            <img src="images/breed2.jpg" alt="Breed 2" onclick="navigateTo('./breed/breed2.html')">
+            <p>Breed B</p>
+        </div>
+        <div class="breed-card">
+            <img src="images/breed3.jpg" alt="Breed 3" onclick="navigateTo('./breed/breed3.html')">
+            <p>Breed C</p>
+        </div>
+
+        <div class="breed-card">
+            <img src="images/breed4.jpg" alt="Breed 4" onclick="navigateTo('./breed/breed4.html')">
+            <p>Breed A</p>
+        </div>
+        <div class="breed-card">
+            <img src="images/breed5.jpg" alt="Breed 5" onclick="navigateTo('./breed/breed5.html')">
+            <p>Breed B</p>
+        </div>
+        <div class="breed-card">
+            <img src="images/breed6.jpg" alt="Breed 6" onclick="navigateTo('./breed/breed6.html')">
+            <p>Breed C</p>
+        </div>
+
+        <div class="breed-card">
+            <img src="images/breed7.jpg" alt="Breed 7" onclick="navigateTo('./breed/breed7.html')">
+            <p>Breed A</p>
+        </div>
+        <div class="breed-card">
+            <img src="images/breed8.jpg" alt="Breed 8" onclick="navigateTo('./breed/breed8.html')">
+            <p>Breed B</p>
+        </div>
+        <div class="breed-card">
+            <img src="images/breed9.jpg" alt="Breed 9" onclick="navigateTo('./breed/breed9.html')">
+            <p>Breed C</p>
+        </div>
+        <!-- Add more breeds as needed -->
+    </div>
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        /* Add your styles here */
+        .checkout-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .checkout-form input,
+        .checkout-form button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .bill-container {
+            display: none;
+            margin-top: 20px;
+        }
+        .bill-item {
+            margin: 10px 0;
+        }
+        .bill-item p {
+            margin: 0;
+        }
+        .bill-item h3 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="checkout-container">
+        <h1>Checkout</h1>
+        <form class="checkout-form" id="checkout-form">
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email Address" required>
+            <input type="text" id="address" placeholder="Shipping Address" required>
+            <input type="text" id="city" placeholder="City" required>
+            <input type="text" id="zip" placeholder="ZIP Code" required>
+            <input type="text" id="card-number" placeholder="Card Number" required>
+            <input type="text" id="expiry-date" placeholder="Expiry Date (MM/YY)" required>
+            <input type="text" id="cvv" placeholder="CVV" required>
+            <button type="submit">Place Order</button>
+        </form>
+        <div id="message"></div>
+        <div class="bill-container" id="bill-container">
+            <h2>Bill</h2>
+            <div id="bill-details"></div>
+            <button id="print-button">Print Bill</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById('checkout-form');
+            const messageDiv = document.getElementById('message');
+            const billContainer = document.getElementById('bill-container');
+            const billDetailsDiv = document.getElementById('bill-details');
+            const printButton = document.getElementById('print-button');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const address = document.getElementById('address').value;
+                const city = document.getElementById('city').value;
+                const zip = document.getElementById('zip').value;
+                const cardNumber = document.getElementById('card-number').value;
+                const expiryDate = document.getElementById('expiry-date').value;
+                const cvv = document.getElementById('cvv').value;
+
+                // Placeholder for validation and processing
+                if (validateForm(name, email, address, city, zip, cardNumber, expiryDate, cvv)) {
+                    // Simulate successful checkout
+                    processOrder(name, email, address, city, zip, cardNumber, expiryDate, cvv);
+                } else {
+                    messageDiv.textContent = "Please fill in all required fields correctly.";
+                }
+            });
+
+            function validateForm(name, email, address, city, zip, cardNumber, expiryDate, cvv) {
+                // Simple validation (add more checks as needed)
+                return name && email && address && city && zip && cardNumber && expiryDate && cvv;
+            }
+
+            function processOrder(name, email, address, city, zip, cardNumber, expiryDate, cvv) {
+                // Here, you would typically send the order data to your backend
+                // For demonstration purposes, we'll just display a success message and bill
+
+                const subtotal = getTotalcartAmount(); // Placeholder for dynamic total calculation
+                const total = subtotal; // Assuming no additional fees
+
+                messageDiv.textContent = "Order placed successfully!";
+                billContainer.style.display = 'block';
+                billDetailsDiv.innerHTML = `
+                    <div class="bill-item"><p><strong>Full Name:</strong> ${name}</p></div>
+                    <div class="bill-item"><p><strong>Email Address:</strong> ${email}</p></div>
+                    <div class="bill-item"><p><strong>Shipping Address:</strong> ${address}, ${city}, ${zip}</p></div>
+                    <div class="bill-item"><p><strong>Card Number:</strong> ${cardNumber}</p></div>
+                    <div class="bill-item"><p><strong>Subtotal:</strong> $${subtotal.toFixed(2)}</p></div>
+                    <div class="bill-item"><p><strong>Total:</strong> $${total.toFixed(2)}</p></div>
+                `;
+
+                // Clear cart after successful order
+                localStorage.removeItem('cart-items');
+                // Redirect or handle further
+                setTimeout(() => {
+                    window.location.href = '/';
+                }, 2000);
+            }
+
+            printButton.addEventListener('click', function() {
+                window.print();
+            });
+
+            function getTotalcartAmount() {
+                // Placeholder for dynamic total calculation
+                return 100.00; // Example value
+            }
+        });
+    </script>
+
+</body>
+</html> -->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .checkout-form, .bill-container {
+            margin: 20px 0;
+        }
+        .bill-container {
+            display: none;
+            border: 1px solid #ccc;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+        .bill-item {
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        input {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Checkout</h1>
+    <form id="checkout-form" class="checkout-form">
+        <input type="text" id="name" placeholder="Full Name" required />
+        <input type="email" id="email" placeholder="Email Address" required />
+        <input type="text" id="address" placeholder="Shipping Address" required />
+        <input type="text" id="city" placeholder="City" required />
+        <input type="text" id="zip" placeholder="ZIP Code" required />
+        <input type="text" id="cardNumber" placeholder="Card Number" required />
+        <input type="text" id="expiryDate" placeholder="Expiry Date (MM/YY)" required />
+        <input type="text" id="cvv" placeholder="CVV" required />
+        <button type="submit">Place Order</button>
+    </form>
+
+    <div id="bill-container" class="bill-container">
+        <h2>Bill</h2>
+        <div class="bill-item"><p><strong>Full Name:</strong> <span id="bill-name"></span></p></div>
+        <div class="bill-item"><p><strong>Email Address:</strong> <span id="bill-email"></span></p></div>
+        <div class="bill-item"><p><strong>Shipping Address:</strong> <span id="bill-address"></span></p></div>
+        <div class="bill-item"><p><strong>Card Number:</strong> <span id="bill-cardNumber"></span></p></div>
+        <div class="bill-item"><p><strong>Subtotal:</strong> $<span id="bill-subtotal"></span></p></div>
+        <div class="bill-item"><p><strong>Total:</strong> $<span id="bill-total"></span></p></div>
+        <button onclick="window.print()">Print Bill</button>
+    </div>
+
+    <script>
+        document.getElementById('checkout-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                address: document.getElementById('address').value,
+                city: document.getElementById('city').value,
+                zip: document.getElementById('zip').value,
+                cardNumber: document.getElementById('cardNumber').value,
+                expiryDate: document.getElementById('expiryDate').value,
+                cvv: document.getElementById('cvv').value
+            };
+
+            fetch('http://127.0.0.1:8080/checkout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    // Display bill
+                    document.getElementById('bill-name').textContent = formData.name;
+                    document.getElementById('bill-email').textContent = formData.email;
+                    document.getElementById('bill-address').textContent = `${formData.address}, ${formData.city}, ${formData.zip}`;
+                    document.getElementById('bill-cardNumber').textContent = formData.cardNumber;
+                    document.getElementById('bill-subtotal').textContent = result.subtotal.toFixed(2);
+                    document.getElementById('bill-total').textContent = result.total.toFixed(2);
+
+                    document.getElementById('bill-container').style.display = 'block';
+
+                    // Optionally, clear the cart from local storage or perform other cleanup
+                    localStorage.removeItem('cart-items');
+                } else {
+                    alert('Order processing failed: ' + result.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while processing your order.');
+            });
+        });
+    </script>
+
+</body>
+</html>

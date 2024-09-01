@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Totals</title>
+    <style>
+        /* Add your styles here */
+        .cartitems-down {
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .cartitems-total {
+            margin-bottom: 20px;
+        }
+        .cartitems-total-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+        }
+        .cartitems-total-item p,
+        .cartitems-total-item h3 {
+            margin: 0;
+        }
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cartitems-down">
+        <div class="cartitems-total">
+            <h1>Cart Totals</h1>
+            <div>
+                <div class="cartitems-total-item">
+                    <p>Subtotal</p>
+                    <p id="subtotal-amount">$0.00</p>
+                </div>
+                <hr />
+                <div class="cartitems-total-item">
+                    <p>Shipping Fee</p>
+                    <p>Free</p>
+                </div>
+                <hr />
+                <div class="cartitems-total-item">
+                    <h3>Total</h3>
+                    <h3 id="total-amount">$0.00</h3>
+                </div>
+            </div>
+            <button id="checkout-button">PROCEED TO CHECKOUT</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to get total cart amount - replace with actual logic
+            function getTotalcartAmount() {
+                // Placeholder for dynamic total calculation
+                return 100.00; // Example value
+            }
+
+            // Update the cart totals
+            function updateCartTotals() {
+                const subtotal = getTotalcartAmount();
+                document.getElementById('subtotal-amount').textContent = `$${subtotal.toFixed(2)}`;
+                document.getElementById('total-amount').textContent = `$${subtotal.toFixed(2)}`;
+            }
+
+            // Initialize cart totals on page load
+            updateCartTotals();
+
+            // Add functionality to the checkout button if needed
+            document.getElementById('checkout-button').addEventListener('click', function() {
+                // Handle checkout action, e.g., redirect to checkout page
+                window.location.href = '/checkout';
+            });
+        });
+    </script>
+
+</body>
+</html>

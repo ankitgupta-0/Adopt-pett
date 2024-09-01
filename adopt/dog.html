@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adopt a Dog</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+        .pet-card {
+            display: inline-block;
+            margin: 20px;
+            text-align: left;
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-decoration: none;
+            width: 250px;
+        }
+        .pet-card img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="container"> -->
+        <!-- <h1>Dogs Available for Adoption</h1>
+        <div class="pet-card">
+            <img src="images/dog1.jpg" alt="Dog 1">
+            <h2>Dog 1</h2>
+            <p>Name: Max</p>
+            <p>Age: 2 years</p>
+            <p>Gender: Male</p>
+            <p>Breed: Labrador</p>
+            <p>Description: Friendly and energetic.</p>
+        </div>
+        <div class="pet-card">
+            <img src="images/dog2.jpg" alt="Dog 2">
+            <h2>Dog 2</h2>
+            <p>Name: Bella</p>
+            <p>Age: 3 years</p>
+            <p>Gender: Female</p>
+            <p>Breed: Beagle</p>
+            <p>Description: Loving and playful.</p>
+        </div> -->
+        <h1>Adopt a Dog</h1>
+    <div class="pet-cards">
+        <div class="pet-card">
+            <a href="dog-details.html?id=1" class="adopt1">
+                <img src="images/dog1.jpg" alt="Dog 1" onclick="navigate('dog-details.html?id=1')">
+                <h2>Dog 1</h2>
+                <p>Name: Max</p>
+                <p>Age: 2 years</p>
+                <p>Gender: Male</p>
+                <p>Breed: Labrador</p>
+                <p>Description: Friendly and energetic.</p>
+            </a>
+        </div>
+        <!-- Add more dog cards here, each with a unique ID -->
+    </div>
+        <!-- Add more dog cards as needed -->
+    <!-- </div> -->
+</body>
+</html>
+

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Items</title>
+    <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+    <div class="cartitems">
+        <div class="cartitem-format-main">
+            <p>Products</p>
+            <p>Title</p>
+            <p>Price</p>
+            <p>Quantity</p>
+            <p>Total</p>
+            <p>Remove</p>
+        </div>
+        <hr />
+        <div id="cart-items-container"></div>
+        <div class="cartitems-down">
+            <div class="cartitems-total">
+                <h1>Cart Totals</h1>
+                <div>
+                    <div class="cartitems-total-item">
+                        <p>Subtotal</p>
+                        <p id="subtotal">$0.00</p>
+                    </div>
+                    <hr />
+                    <div class="cartitems-total-item">
+                        <p>Shipping Fee</p>
+                        <p>Free</p>
+                    </div>
+                    <hr />
+                    <div class="cartitems-total-item">
+                        <h3>Total</h3>
+                        <h3 id="total">$0.00</h3>
+                    </div>
+                </div>
+                <button id="checkout-button">PROCEED TO CHECKOUT</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const url = "https://fullstack-ecommerce-app-gw43.onrender.com";
+        const remove_icon = "path/to/cart_cross_icon.png"; // Update path accordingly
+
+        async function fetchCartItems() {
+            try {
+                const response = await fetch(`${url}/cart`, {
+                    method: "GET",
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${localStorage.getItem('auth-token')}`
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to fetch cart items');
+                }
+
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error fetching cart items:', error);
+                alert('Failed to load cart items');
+                return { cartItems: {}, all_product: [] }; // Default empty data
+            }
+        }
+
+        function getTotalCartAmount(cartItems, all_product) {
+            return all_product.reduce((total, product) => {
+                if (cartItems[product.id]) {
+                    return total + (product.new_price * cartItems[product.id]);
+                }
+                return total;
+            }, 0).toFixed(2);
+        }
+
+        function removeFromCart(productId) {
+            // Logic for removing from cart and updating UI goes here
+            alert(`Remove item with ID: ${productId}`);
+            // For demonstration, we will just refresh the cart items
+            renderCartItems();
+        }
+
+        function renderCartItems() {
+            fetchCartItems().then(({ cartItems, all_product }) => {
+                const cartItemsContainer = document.getElementById('cart-items-container');
+                cartItemsContainer.innerHTML = ''; // Clear existing items
+
+                all_product.forEach(product => {
+                    if (cartItems[product.id] > 0) {
+                        const itemDiv = document.createElement('div');
+                        itemDiv.innerHTML = `
+                            <div class="cartitems-format cartitem-format-main">
+                                <img src="${url}/images/${product.image}" class="carticon-produt-icon" alt="${product.name}" />
+                                <p>${product.name}</p>
+                                <p>$${product.new_price}</p>
+                                <button class="cartitems-quantity">${cartItems[product.id]}</button>
+                                <p>$${(product.new_price * cartItems[product.id]).toFixed(2)}</p>
+                                <img class="cartitems-remove-icon" src="${remove_icon}" onclick="removeFromCart(${product.id})" alt="Remove" />
+                            </div>
+                            <hr />
+                        `;
+                        cartItemsContainer.appendChild(itemDiv);
+                    }
+                });
+
+                // Update totals
+                document.getElementById('subtotal').textContent = `$${getTotalCartAmount(cartItems, all_product)}`;
+                document.getElementById('total').textContent = `$${getTotalCartAmount(cartItems, all_product)}`;
+            });
+        }
+
+        // Initial rendering
+        renderCartItems();
+
+        document.getElementById('checkout-button').addEventListener('click', () => {
+            alert('Proceeding to checkout');
+        });
+
+        document.getElementById('submit-promo').addEventListener('click', () => {
+            const promoCode = document.getElementById('promo-code').value;
+            alert('Promo code submitted: ' + promoCode);
+        });
+    </script>
+</body>
+</html>

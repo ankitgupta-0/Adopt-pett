@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawhelp</title>
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        /* Add your styles here */
+        .nav-login-cart {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .nav-login-cart button {
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        .nav-login-cart button:hover {
+            background-color: #0056b3;
+        }
+        .nav-cart-count {
+            background-color: #ffc107;
+            border-radius: 50%;
+            padding: 5px;
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="navbar-left">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" 
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mobile-menu">
+                <path d="M4 6l16 0"></path>
+                <path d="M4 12l16 0"></path><path d="M4 18l16 0"></path></svg>
+            <a class="logo_link" href="pawhelp.html">
+                <img src="logo.png" alt="Pawhelp Logo" class="logo">
+                <span class="brand-name">Pawhelp</span>
+            </a>
+            <button class="menuBtn" onclick="buttonClickHandler()">☰</button>
+        </div>
+
+        <div class="search-container">
+            <input type="text" placeholder="Search..." class="search-input" oninput="showSuggestions(this.value)" onkeydown="handleEnter(event)">
+            <button class="search-button" onclick="searchItem()">
+                <span class="material-symbols-outlined">search</span>
+            </button>
+            <div class="suggestions-list" id="suggestionsList"></div>
+        </div>
+
+        <div class="navbar-right">
+            <span class="material-symbols-outlined" onclick="navigateTo('delivery.html')">local_shipping</span>
+            <span class="material-symbols-outlined" onclick="window.location.href='contact.html'">call</span>
+            <span class="material-symbols-outlined" onclick="navigateTo('users/login.html')">person</span>
+            <div class="cart">
+                <span class="cart-count add-to-cart" onclick="addToCart()">0</span>
+                <span class="material-symbols-outlined">shopping_cart</span>
+            </div>
+        </div>
+    </nav>
+    <div class="nav-login-cart">
+        <button id="auth-button">Login</button>
+        <a href="/cart">
+            <img src="path/to/cart_icon.png" alt="Cart Icon" id="cart-icon"/>
+        </a>
+        <div class="nav-cart-count" id="cart-count">0</div>
+    </div>
+        
+        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+    
+
+    <div id="pets">
+        <div class="card">
+          <img src="images/adopt1.jpg" alt="Adopt" class="clickable" onclick="navigateTo('./adopt/adopt.html')">
+          <div class="card-content">
+            <h3>Adopt a Friend</h3>
+            <p>Give a loving home to a furry companion.</p>
+          </div>
+        </div>
+        <div class="card">
+          <img src="images/shop.jpg" alt="Shop" class="clickable" onclick="navigateTo('./shop/shop.html')">
+          <div class="card-content">
+            <h3>Shop for Pets</h3>
+            <p>Find everything your pet needs!</p>
+          </div>
+        </div>
+      </div>
+      
+
+      <section class="shop-categories">
+        <h2>Shop by Categories</h2>
+        <div class="carousel">
+            <div class="carousel-track-container">
+                <div class="carousel-track">
+                    <img src="images/catfood.jpg" alt="Category 1" class="clickable" onclick="navigateTo('./product/dog-food.html')" label for="dog-food">
+                    <img src="images/bed.jpg" alt="Category 2" class="clickable" onclick="navigateTo('./product/bed.html')">
+                    <img src="images/cattreat.jpg" alt="Category 3" class="clickable" onclick="navigateTo('./product/cattreat.html')">
+                    <img src="images/cloth.jpg" alt="Category 4" class="clickable" onclick="navigateTo('./product/cloth.html')">
+                    <img src="images/dogfood.jpg" alt="Category 5" class="clickable" onclick="navigateTo('./product/dogfood.html')">
+                    <img src="images/feerder.jpg" alt="Category 6" class="clickable" onclick="navigateTo('./product/feeder.html')">
+                    <img src="images/grooming.jpg" alt="Category 7" class="clickable" onclick="navigateTo('./product/grooming.html')">
+                    <img src="images/litter.jpg" alt="Category 8" class="clickable" onclick="navigateTo('./product/litter.html')">
+                    <img src="images/toys.jpg" alt="Category 9" class="clickable" onclick="navigateTo('./product/toys.html')">
+                    <img src="images/treatdog.jpg" alt="Category 10" class="clickable" onclick="navigateTo('./product/treatdog.html')">
+                    <img src="images/walk.jpg" alt="Category 11" class="clickable" onclick="navigateTo('./product/walk.html')">
+                    <img src="images/wellness.jpg" alt="Category 12" class="clickable" onclick="navigateTo('./product/wellness.html')">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="shop-by-pet">
+        <h2>Shop by Pet</h2> <br />
+        <div class="pet-categories">
+            <img src="images/dog1.jpg" alt="Dog" class="clickable" onclick="navigateTo('./pet-categories/dog.html')">
+            <img src="images/cat.png" alt="Cat" class="clickable" onclick="navigateTo('./pet-categories/cat.html')">
+            <img src="images/bird.jpg" alt="Bird" class="clickable" onclick="navigateTo('./pet-categories/bird.html')">
+            <img src="images/rabbit.jpg" alt="Rabbit" class="clickable" onclick="navigateTo('./pet-categories/reptiles.html')">
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>ONLINE SHOPPING</h3>
+                <ul>
+                    <li><a href="../frontend/shop/dog/dog.html">Dogs</a></li>
+                    <li><a href="../frontend/shop/cat/cat.html">Cats</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>EXPLORE</h3>
+                <ul>
+                    <li><a href="./footer/our-story.html">Our Story</a></li>
+                    <li><a href="./footer/faqs.html">FAQs</a></li>
+                    <li><a href="./footer/blog.html">Blog</a></li>
+                    <li><a href="./footer/contact-us.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>QUICK LINKS</h3>
+                <ul>
+                    <li><a href="./footer/my-account.html">My Account</a></li>
+                    <li><a href="./footer/track-order.html">Track Your Order</a></li>
+                    <li><a href="./footer/refund-policy.html">Refund Policy</a></li>
+                    <li><a href="./footer/return-policy.html">Return Policy</a></li>
+                    <li><a href="./footer/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="./footer/terms-of-use.html">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>FOLLOW US</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/myurl/"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>GET IN TOUCH</h3>
+                <p>📞 7718-895-303</p>
+                <p>📧 bhushanparate666@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const authButton = document.getElementById('auth-button');
+            const cartIcon = document.getElementById('cart-icon');
+            const cartCount = document.getElementById('cart-count');
+
+            function updateAuthButton() {
+                const token = localStorage.getItem('auth-token');
+                if (token) {
+                    authButton.textContent = 'Log Out';
+                    authButton.addEventListener('click', function() {
+                        localStorage.removeItem('auth-token');
+                        window.location.replace('/');
+                    });
+                } else {
+                    authButton.textContent = 'Login';
+                    authButton.addEventListener('click', function() {
+                        window.location.href = '/login';
+                    });
+                }
+            }
+
+            function updateCartCount() {
+                // Here you would typically make an API call to get the cart count
+                // For demonstration, we'll use a static value
+                const cartItemCount = 5; // Replace with actual cart item count
+                cartCount.textContent = cartItemCount;
+            }
+
+            updateAuthButton();
+            updateCartCount();
+        });
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>

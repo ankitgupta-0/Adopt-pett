@@ -1,0 +1,439 @@
+/* style.css */
+
+/* General Enhancements */
+body {
+  font-family: Arial, sans-serif; /* Adjust font family as needed */
+  margin: 0;
+  padding: 0;
+  background-color: #4bb122; /* Light background for better contrast */
+  color: #333; /* Darker text for better readability */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #212529; /* Darker heading color for better contrast */
+}
+
+/* Navbar */
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #136a0b;
+  color: #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  color: #ddd;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.brand-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.logo_link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.menuBtn {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  margin-left: 15px;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  flex: 1; /* This makes the search container take up the remaining space */
+  margin: 0 20px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+  font-size: 1rem;
+}
+
+.search-button {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-left: none;
+  background-color: #f8f8f8;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+}
+
+.search-button .material-symbols-outlined {
+  font-size: 1.8rem;
+  margin-right: 30px;
+}
+
+.suggestions-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.suggestions-list div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestions-list div:hover {
+  background-color: #f0f0f0;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+  cursor: pointer;
+  
+}
+
+.material-symbols-outlined {
+  margin-left:50px;
+}
+
+.cart {
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.cart-count {
+  margin-right: 5px;
+  background-color: red;
+  padding: 5px 10px;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.add-to-cart {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #28a745;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.add-to-cart:hover {
+  background-color: #218838;
+}
+
+.cart .material-icons-outlined {
+  font-size: 24px;
+}
+
+@media (max-width: 768px) {
+  .menuBtn {
+      display: block;
+  }
+  .search-container, .navbar-right {
+      display: none;
+  }
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+}
+/* Pets Section */
+
+#pets {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}
+
+@media (max-width: 375px) {
+  #pets {
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 100%; /* Adjust width for smaller screens */
+  }
+}
+
+.card {
+  width: 300px; /* Adjust width as needed */
+  border: 2px solid #ddd; /* Softer border color */
+  border-radius: 25px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #fff; /* Light background color */
+  transition: transform 0.2s ease-in-out; /* Smooth hover effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle drop shadow */
+}
+
+.card img {
+  width: 100%;
+  border-radius: 25px;
+}
+
+.card:hover {
+  transform: scale(1.02); /* Slight scale-up on hover */
+}
+
+.card-content {
+  text-align: center; /* Center content within cards */
+  padding: 10px; /* Add some space around content */
+}
+
+.card-content h3 {
+  margin-bottom: 5px; /* Add space between heading and paragraph */
+  font-size: 1.2rem; /* Adjust heading size as needed */
+}
+
+.card-content p {
+  font-size: 1rem; /* Adjust paragraph size as needed */
+  color: #333; /* Darker text color for better readability */
+}
+
+.shop-categories {
+  padding: 20px;
+  background-color: #f8f8f8; /* light background color */
+}
+
+.shop-categories h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.carousel-track-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.carousel-track img {
+  border-radius: 20px;
+  margin: 0 40px;
+  width: 200px; /* Adjust size as needed */
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.carousel-track img:hover {
+  transform: scale(1.05);
+}
+
+.clickable {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .carousel-track img {
+      width: 150px;
+      height: 150px;
+  }
+}
+
+
+
+
+
+.shop-by-pet {
+  padding: 80px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.shop-by-pet h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.pet-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+
+.pet-categories img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.clickable {
+  display: block;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .shop-by-pet {
+      padding: 20px 10px;
+  }
+
+  .shop-by-pet h2 {
+      font-size: 24px;
+  }
+}
+
+
+.pet-categories img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5%;
+  cursor: pointer;
+  justify-content: space-around;
+} 
+
+
+
+
+footer {
+  background-color: #8ba9bc;
+  color: #fff;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.footer-column {
+  color: #fff;
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+}
+
+.footer-column h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.footer-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin: 5px 0;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.footer-column ul li a:hover {
+  text-decoration: underline;
+}
+
+.app-links img {
+  width: 150px;
+  margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+  .card {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .carousel img {
+      width: 100px;
+      height: 100px;
+  }
+
+  .pet-categories {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .pet-categories img {
+      width: 80px;
+      height: 80px;
+  }
+
+  .footer-container {
+      flex-direction: column;
+      align-items: center;
+  }
+}
+
+
+
+
+/* flipkart */
+
+.tUxRFH {
+  line-height: 1;
+  padding: 24px 0 30px 24px;
+  display: block;
+  position: relative;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+
+
+
+
+

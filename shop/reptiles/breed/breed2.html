@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Breed A</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+        .age-card {
+            display: inline-block;
+            margin: 20px;
+        }
+        .age-card img {
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose an Age Group</h1>
+        <div class="age-card">
+            <img src="images/age1.jpg" alt="45-60 Days" onclick="navigateTo('../age/age1.html')">
+            <p>45-60 Days</p>
+        </div>
+        <div class="age-card">
+            <img src="images/age2.jpg" alt="60-90 Days" onclick="navigateTo('../age/age2.html')">
+            <p>60-90 Days</p>
+        </div>
+        <div class="age-card">
+            <img src="images/age3.jpg" alt="90+ Days" onclick="navigateTo('../age/age3.html')">
+            <p>90+ Days</p>
+        </div>
+    </div>
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
